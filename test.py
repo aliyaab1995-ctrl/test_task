@@ -75,7 +75,7 @@ def test_write_return_cutted_word_if_ink_is_not_enough(word):
 # 11
 # @pytest.mark.xfail(reason='Учитывая размер букв, слово должно быть обрезано, т.к. чернил не хватит')
 @pytest.mark.parametrize('word', ['hello'])
-def test_write_return_cutted_word_if_size_letter_multiple_word_length_more_than_ink(word):
+def test_write_return_cutted_word_if_size_letter_multiply_word_length_more_than_ink(word):
     test_pen = Pen(ink_container_value=5, size_letter=2.0)
     assert test_pen.write(word) == word[:2]
     assert test_pen.ink_container_value == 0
