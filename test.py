@@ -15,10 +15,10 @@ def test_init_default_values(pen):
 # 2
 @pytest.mark.parametrize("ink,size,color",[(500, 2.0, 'red')])
 def test_init_custom_values(ink, size, color):
-    pen = Pen(ink_container_value=ink, size_letter=size, color=color)
-    assert pen.ink_container_value == ink
-    assert pen.size_letter == size
-    assert pen.color == color
+    custom_pen = Pen(ink_container_value=ink, size_letter=size, color=color)
+    assert custom_pen.ink_container_value == ink
+    assert custom_pen.size_letter == size
+    assert custom_pen.color == color
 
 # 3
 def test_get_color_returns_default_color(pen):
@@ -28,14 +28,14 @@ def test_get_color_returns_default_color(pen):
 # @pytest.mark.xfail(reason='Новый цвет не записывается')
 @pytest.mark.parametrize('color', ['red'])
 def test_get_color_return_correct_color(color):
-    pen = Pen(color=color)
-    assert pen.get_color() == color
+    test_pen = Pen(color=color)
+    assert test_pen.get_color() == color
 
 # 5
 @pytest.mark.parametrize('value, expected', [(0, False), (1000, True), (-1, False), (1, True)])
 def test_check_pen_state(value, expected):
-    pen = Pen(ink_container_value=value)
-    assert pen.check_pen_state() is expected
+    test_pen = Pen(ink_container_value=value)
+    assert test_pen.check_pen_state() is expected
 
 # 6
 # @pytest.mark.xfail(reason='Метод ничего не возвращает')
